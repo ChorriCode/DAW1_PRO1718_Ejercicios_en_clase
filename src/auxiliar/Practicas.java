@@ -357,6 +357,14 @@ public HashMap<String,Float> resumenVentasPorVendedor( HashMap<String, ArrayList
 			saldoFinal += movimientos[i];
 		return saldoFinal;
 	}
+	
+	public float calculaSaldo(float saldoInicial, ArrayList<Float> movimientos) {
+		float saldoFinal = saldoInicial;
+		for (Float elemento : movimientos) {
+			saldoFinal += elemento;
+		}
+		return saldoFinal;
+	}
 
 	public int[] convierteCadenasANumeros(String[] cadenas) {
 		int[] resultado = new int[cadenas.length];
@@ -460,6 +468,18 @@ public HashMap<String,Float> resumenVentasPorVendedor( HashMap<String, ArrayList
 		for (int i = 0; i < cuantos; i++)
 			// System.out.println(inferior + rnd.nextInt(superior - inferior + 1));
 			resultado[i] = inferior + rnd.nextInt(superior - inferior + 1);
+		return resultado;
+	}
+	
+	public ArrayList<Float> generaAleatoriosArrayListFloat(int cuantos, float inferior, float superior) // max 30, min 10
+	{
+		ArrayList<Float> resultado = new ArrayList<Float>(10);
+		
+		Random rnd = new Random();
+		for (int i = 0; i < cuantos; i++) {
+			resultado.add(inferior + rnd.nextFloat() * superior);
+			
+		}
 		return resultado;
 	}
 

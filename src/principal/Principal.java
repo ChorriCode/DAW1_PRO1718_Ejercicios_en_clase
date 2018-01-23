@@ -2,16 +2,13 @@ package principal;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Set;
+import java.util.Random;
 
 import auxiliar.Practicas;
 import modelo.Datos;
 import modelo.Equipo;
 import modelo.Estudiante;
-import modelo.Persona;
-import modelo.Profesor;
 
 public class Principal {
 	// metodo por el que debe empezar la ejecución ..
@@ -142,7 +139,10 @@ public class Principal {
 		Estudiante noexisto = mapa.get("noexisto");
 		
 		//practicas.leerFicheroTexto();
-		HashMap<String, ArrayList<Float>> hm = practicas.resumenVentasVendedor("ficheros/ventas.txt");
+		//HashMap<String, ArrayList<Float>> hm = practicas.resumenVentasVendedor("ficheros/ventas.txt");
+		ArrayList<Float> listaFloat = practicas.generaAleatoriosArrayListFloat(5, 1.0f, 5.0f);
+		float saldo = practicas.calculaSaldo(1000.0f, listaFloat);
+
 		System.out.println("fin");
 
 	}
