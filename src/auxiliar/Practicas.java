@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Set;
@@ -292,6 +293,10 @@ public HashMap<String,Float> resumenVentasPorVendedor( HashMap<String, ArrayList
 					numeros[j] = aux;
 				}
 	}
+	
+	public void ordenarEnterosArrayList(ArrayList<Integer> numeros) {
+		Collections.sort(numeros);
+	}
 
 	public void ordenaClasificacion(int[] numeros, String[] equipos) {
 		for (int i = 0; i < numeros.length - 1; i++)
@@ -473,11 +478,22 @@ public HashMap<String,Float> resumenVentasPorVendedor( HashMap<String, ArrayList
 	
 	public ArrayList<Float> generaAleatoriosArrayListFloat(int cuantos, float inferior, float superior) // max 30, min 10
 	{
-		ArrayList<Float> resultado = new ArrayList<Float>(10);
+		ArrayList<Float> resultado = new ArrayList<Float>();
 		
 		Random rnd = new Random();
 		for (int i = 0; i < cuantos; i++) {
 			resultado.add(inferior + rnd.nextFloat() * superior);
+			
+		}
+		return resultado;
+	}
+	public ArrayList<Integer> generaAleatoriosArrayListInteger(int cuantos, int inferior, int superior) // max 30, min 10
+	{
+		ArrayList<Integer> resultado = new ArrayList<Integer>();
+		
+		Random rnd = new Random();
+		for (int i = 0; i < cuantos; i++) {
+			resultado.add(inferior + rnd.nextInt(superior - inferior + 1));
 			
 		}
 		return resultado;

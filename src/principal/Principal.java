@@ -142,6 +142,8 @@ public class Principal {
 		//HashMap<String, ArrayList<Float>> hm = practicas.resumenVentasVendedor("ficheros/ventas.txt");
 		ArrayList<Float> listaFloat = practicas.generaAleatoriosArrayListFloat(5, 1.0f, 5.0f);
 		float saldo = practicas.calculaSaldo(1000.0f, listaFloat);
+		ArrayList<Integer> listInteger = practicas.generaAleatoriosArrayListInteger(5, 1, 10);
+		practicas.ordenarEnterosArrayList(listInteger);
 
 		System.out.println("fin");
 
