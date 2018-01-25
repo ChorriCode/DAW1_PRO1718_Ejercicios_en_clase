@@ -134,13 +134,21 @@ public class Practicas {
 		}
 		return resultado;
 	}
-public HashMap<String,Float> resumenVentasPorVendedor( HashMap<String, ArrayList<Float>> ventas){
-	HashMap<String, Float> resultado = new HashMap<String,Float>();
-	// recorrer hm de entrada creando el de salida
+	public HashMap<String, Float> resumenVentasPorProveedor(HashMap<String, ArrayList<Float>> listaVendedoresVentas){
+		HashMap<String, Float> resultado = new HashMap<String, Float>();
+		for (String clave : listaVendedoresVentas.keySet()) {
+			for (Float valor : listaVendedoresVentas.get(clave)) {
+				if (resultado.get(clave) == null) {
+					resultado.put(clave, valor);
+				} else {
+					resultado.put(clave, resultado.get(clave) + valor);
+				}			
+			}		
+		}
 	
+		return resultado;
+	}
 	
-	return resultado;	
-}
 	public int calculaEdad(String fechaNacimiento) { // ddmmaaaa
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("ddMMyyyy");
 		LocalDate fechaNac = LocalDate.parse(fechaNacimiento, fmt);
