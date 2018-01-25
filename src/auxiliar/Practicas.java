@@ -412,6 +412,18 @@ public class Practicas {
 		return resultado;
 	}
 
+	public ArrayList<ArrayList<Integer>> convierteMatrizArrayEnMatrizArrayList(int[][] matriz){
+		ArrayList<ArrayList<Integer>> resultado = new ArrayList<ArrayList<Integer>>();
+		
+		for (int i = 0; i < matriz.length; i++) {
+			resultado.add(new ArrayList<Integer>());
+			for (int j = 0; j < matriz[i].length ; j++) {
+				resultado.get(i).add(matriz[i][j]);
+			}
+		}
+		return resultado;
+	}
+
 	public void muestraNumeros() {
 
 		int x = 0;
