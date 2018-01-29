@@ -12,7 +12,7 @@ import modelo.Estudiante;
 
 public class Principal {
 	// metodo por el que debe empezar la ejecución ..
-	public static void main(String[] args) {
+	public static void main(String[] args)  {
 		/*
 		 * Persona persona; persona = new Persona();
 		 * 

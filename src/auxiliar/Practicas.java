@@ -503,13 +503,18 @@ public class Practicas {
 			FileWriter fw = new FileWriter("ficheros/lanzamientosDado2.txt");
 			BufferedWriter br = new BufferedWriter(fw);
 			for (int i = 0; i < resultado.keySet().size(); i++) {
-				String cadena = i+1 +"%" + resultado.get(i+1)+ "\n";
+				long tiempo = System.currentTimeMillis();
+				Thread.sleep(100 + (int) (Math.random() * (2000 - 100 + 100)));
+				String cadena = i+1 + "%" + resultado.get(i+1)+ "%" + tiempo +  "\n";
 				br.write(cadena);
 			}
 			
 			br.close();
 			fw.close();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
