@@ -1,8 +1,10 @@
 package auxiliar;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
@@ -12,6 +14,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Set;
+
+import com.sun.javafx.font.FontResource;
 
 import modelo.Datos;
 import modelo.Equipo;
@@ -329,7 +333,7 @@ public class Practicas {
 				resultado[k] = l1[i++];
 			else
 				resultado[k] = l2[j++];
-			k++;
+				k++;
 
 			if (i == l1.length)
 				l1[--i] = Integer.MAX_VALUE;
@@ -470,6 +474,47 @@ public class Practicas {
 			System.out.println("Error, min debe ser menor que maximo");
 	}
 
+	public void generaFicheroLanzamientosDado(int cuantos) {
+		int[] aleatorio = generaAleatorios3(cuantos, 1, 6);
+		try {
+			FileWriter fw = new FileWriter("ficheros/lanzamientosDado.txt");
+			BufferedWriter br = new BufferedWriter(fw);
+			for (int i = 0; i < aleatorio.length; i++) {
+				String cadena = i+1 +"%" + aleatorio[i] + "\n";
+				br.write(cadena);
+			}
+			
+			br.close();
+			fw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+		
+	public void generaFicheroLanzamientosDado2(int cuantos) {
+		HashMap<Integer, Integer> resultado = new HashMap<Integer,Integer>();
+		for (int i = 0; i < cuantos; i++) {
+			
+			resultado.put(i+1, 1 + (int) (Math.random() * (6 - 1 + 1)));
+			System.out.println(i+1 + "---" + resultado.get(i+1));
+		}
+		try {
+			FileWriter fw = new FileWriter("ficheros/lanzamientosDado2.txt");
+			BufferedWriter br = new BufferedWriter(fw);
+			for (int i = 0; i < resultado.keySet().size(); i++) {
+				String cadena = i+1 +"%" + resultado.get(i+1)+ "\n";
+				br.write(cadena);
+			}
+			
+			br.close();
+			fw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void generaAleatorios(int cuantos, int inferior, int superior) // max 30, min 10
 	{
 

@@ -139,12 +139,13 @@ public class Principal {
 		Estudiante noexisto = mapa.get("noexisto");
 		
 		//practicas.leerFicheroTexto();
-		//HashMap<String, ArrayList<Float>> hm = practicas.resumenVentasVendedor("ficheros/ventas.txt");
+		HashMap<String, ArrayList<Float>> hm = practicas.resumenVentasVendedor("ficheros/ventas.txt");
 		ArrayList<Float> listaFloat = practicas.generaAleatoriosArrayListFloat(5, 1.0f, 5.0f);
 		float saldo = practicas.calculaSaldo(1000.0f, listaFloat);
 		ArrayList<Integer> listInteger = practicas.generaAleatoriosArrayListInteger(5, 1, 10);
 		practicas.ordenarEnterosArrayList(listInteger);
-
+		practicas.generaFicheroLanzamientosDado(6);
+		practicas.generaFicheroLanzamientosDado2(6);
 		System.out.println("fin");
 
 	}
